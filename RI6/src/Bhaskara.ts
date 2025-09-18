@@ -1,7 +1,14 @@
-import Calculo from "./calculo";
+export default class Bhaskara {
+    public calcular(a: number, b: number, c: number): string {
+        let delta = b*b - 4*a*c;
 
-export default class Bhaskara extends Calculo{
-    public calcular (num1 : number, num2 : number) : number {
-        return num1 * num2
+        if (delta < 0) {
+            return `Não existem raízes reais (Δ = ${delta})`
+        }
+
+        let x1 = (-b + Math.sqrt(delta)) / (2*a);
+        let x2 = (-b - Math.sqrt(delta)) / (2*a);
+
+        return `Δ = ${delta}, x1 = ${x1}, x2 = ${x2}`;
     }
 }
